@@ -4,27 +4,23 @@ import './todo.css';
 class TodoItem extends Component{
     constructor(props){
         super(props)
-        this.onEdit = this.onEdit.bind(this);
-        this.onCancel = this.onCancel.bind(this);
-        this.changeTask = this.changeTask.bind(this);
-        this.saveTask = this.saveTask.bind(this);
         this.state = {
             isEditing: false
         }
     }
-    onEdit(){
+    onEdit = () => {
         this.setState({isEditing: true});
     }
-    onCancel(){
+    onCancel = () => {
         this.setState({isEditing: false});
     }
-    saveTask(){
+    saveTask = () => {
         let oldTask = this.props.task,
             newTask = this.refs.editTask.value;
         this.props.changeTask(oldTask, newTask);
         this.setState({isEditing: false});
     }
-    changeTask(){
+    changeTask = () => {
         if(this.state.isEditing){
             return(
                 <td>
@@ -38,7 +34,7 @@ class TodoItem extends Component{
             </td>
         )
     }
-    changeButton(){
+    changeButton = () => {
         if(this.state.isEditing){
             return(
                 <td>
@@ -58,7 +54,6 @@ class TodoItem extends Component{
         return(
             <tr>
                 <td><input type="checkbox" onChange={this.props.toggleTask.bind(this, this.props.task)} className="toggle-task" checked={this.props.isCompleted ? true : false}/></td>
-                {/* <td><span className={this.props.isCompleted ? 'strike' : ''}>{this.props.task}</span></td> */}
                 {this.changeTask()}
                 {this.changeButton()}
             </tr> 

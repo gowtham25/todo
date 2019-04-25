@@ -57,3 +57,25 @@
     font-size: 14px;
     outline: none;
 }
+table tr:nth-of-type(odd), table tr:nth-of-type(odd) button, table tr:nth-of-type(odd) input {
+    background: aliceblue;
+}
+
+table tr:nth-of-type(odd) input{
+    border: 1px solid #000;
+}
+
+table tr:nth-of-type(even) {
+    background: #FFF;
+}
+
+.error{
+    text-align: center;
+    top: 35px;
+    left: 32px;
+    font-family: cursive;
+    position: absolute;
+    color: red;
+    font-weight: bold;
+    font-size: 30px;
+}
